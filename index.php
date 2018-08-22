@@ -64,11 +64,11 @@ function store()
 		if(x == '{')
 		{
 			in_brackets = true;
-			comma_ind = i - 1;
+			comma_ind = i;
 		}
 		else if(in_brackets && x == ',')
 		{
-			c = str.substring(comma_ind + 2, i);
+			c = str.substring(comma_ind + 1, i);
 			data.push(c);
 			comma_ind = i;
 			count++;
@@ -77,7 +77,7 @@ function store()
 		
 		else if(x == '}' && in_brackets)
 		{
-			c = str.substring(comma_ind + 2, i);
+			c = str.substring(comma_ind + 1, i);
 			in_brackets = false;
 			data.push(c);
 			count++;
